@@ -14,12 +14,8 @@ module NumbersAndWords
       super.to_figures
     end
 
-    def figures_array_in_capacity(capacity)
-      super.to_figures
-    end
-
-    def local_language(&block)
-      ::I18n.with_locale(I18n.local_language, &block)
+    def local_language
+      ::I18n.with_locale(I18n.local_language) { yield }
     end
   end
 end

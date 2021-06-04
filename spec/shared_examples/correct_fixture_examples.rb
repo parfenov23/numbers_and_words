@@ -9,7 +9,6 @@ shared_examples 'correct fixture examples' do |examples|
           tests.each do |input, expectation|
             context input do
               subject { input.send method_name, options }
-
               it { is_expected.to eq(expectation) }
             end
           end

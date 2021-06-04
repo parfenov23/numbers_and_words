@@ -1,28 +1,7 @@
-## 0.11.11 (Next)
+## 0.11.7 (Next)
 
 ### Features
   * Your contribution here.
-
-## 0.11.10 (January 5, 2021)
-
-### Bugs
-  * Avoid adding all array extensions to the standard Array class. \[[#179](https://github.com/kslazarev/numbers_and_words/pull/179)\]
-
-## 0.11.9 (January 4, 2021)
-
-### Features
-  * Add support for Ruby 3.0. \[[#178](https://github.com/kslazarev/numbers_and_words/pull/178)\]
-
-## 0.11.8 (June 6, 2020)
-
-### Features
-  * Add support for Kazakh language. \[[#175](https://github.com/kslazarev/numbers_and_words/pull/175)\] \([@j8sus](https://github.com/j8sus)\)
-
-## 0.11.7 (June 1, 2020)
-
-### Features
-  * Add support for Ruby 2.7. \[[#172](https://github.com/kslazarev/numbers_and_words/pull/172)\]
-  * Drop support for Ruby 2.4.
 
 ## 0.11.6 (April 14, 2019)
 

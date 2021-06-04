@@ -1,22 +1,31 @@
 # frozen_string_literal: true
 
-require 'rake'
 require 'rubygems'
+require 'bundler'
 
 require File.expand_path('lib/numbers_and_words/version', __dir__)
+
+begin
+  Bundler.setup :default, :development
+rescue Bundler::BundlerError => e
+  warn e.message
+  warn 'Run `bundle install` to install missing gems'
+  exit e.status_code
+end
+
+require 'rake'
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   gem.name = 'numbers_and_words'
   gem.homepage = 'http://github.com/kslazarev/numbers_and_words'
   gem.license = 'MIT'
-  gem.summary = 'Spell out numbers in several languages'
-  gem.description = 'This gem spells out numbers in several languages using the I18n gem.'
+  gem.summary = 'Convert numbers to words using I18N.'
+  gem.description = 'Convert numbers to words using I18N.'
   gem.email = 'k.s.lazarev@gmail.com'
   gem.version = NumbersAndWords::VERSION
   gem.authors = ['Kirill Lazarev']
   gem.files = Dir.glob('lib/**/*')
-  gem.required_ruby_version = '>= 2.5.0'
 end
 
 Jeweler::RubygemsDotOrgTasks.new

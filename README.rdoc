@@ -5,7 +5,7 @@
 {<img src="https://secure.travis-ci.org/kslazarev/numbers_and_words.svg?branch=master" />}[http://travis-ci.org/kslazarev/numbers_and_words]
 {<img src="https://coveralls.io/repos/kslazarev/numbers_and_words/badge.svg?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/kslazarev/numbers_and_words]
 
-Spell out numbers in several languages using the I18n gem.
+Convert numbers to words using the I18n library.
 
 Перевод чисел в слова при помощи библиотеки I18n.
 
@@ -15,9 +15,7 @@ Számok betűvel írva az I18n könyvtár segítségével.
 
 I18n kütüphanesi ile sayıları yazıya çevirir.
 
-Soletra números em vários idiomas utilizando a biblioteca I18n.
-
-Deletrea números en varios idiomas utilizando la gema I18n.
+Converte números em letras utilizando a biblioteca I18n.
 
 == Supported Languages / Языки / Langues Supportées
 
@@ -41,11 +39,11 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 * Português [pt]
 * Português Brasileiro [pt-BR]
 * հայերեն (Armenian) [hy]
-* Қазақша [kz]
 
 ** Experimental
 
 * {[en-AU], [en-CA], [en-IN], [en-US]}*** => [en]
+* {[es-419], [es-AR], [es-CL], [es-CO], [es-MX], [es-PE], [es-VE]}*** => [es]
 * {[fr-CA], [fr-CH]}*** => [fr]
 * {[de], [de-AT], [de-CH]}*** => [de]
 * {[it-CH]}*** => [it]
@@ -90,9 +88,6 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     I18n.with_locale(:hy) { 42.to_words }
     => "քառասուն երկու"
 
-    I18n.with_locale(:kz) { 42.to_words }
-    => "қырық екi"
-
     21.to_words
     => "twenty-one"
     => "veintiuno"
@@ -113,7 +108,6 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "vinte e um"
     => "hai mươi mốt"
     => "քսան մեկ"
-    => "жиырма бiр"
 
     231.to_words
     => "two hundred thirty-one"
@@ -135,7 +129,6 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "duzentos e trinta e um"
     => "hai trăm ba mươi mốt"
     => "երկու հարյուր երեսուն մեկ"
-    => "екi жүз отыз бiр"
 
     4030.to_words
     => "four thousand thirty"
@@ -156,7 +149,6 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "čtyři tisíce třicet"
     => "bốn nghìn không trăm ba mươi"
     => "չորս հազար երեսուն"
-    => "төрт мың отыз"
 
     1000100.to_words
     => "one million one hundred"
@@ -177,7 +169,6 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "jeden milión jedno sto"
     => "một triệu một trăm"
     => "մեկ միլիոն հարյուր"
-    => "бiр миллион бiр жүз"
 
     1000000000000000000000000000000000.to_words
     => "one decillion"
@@ -195,7 +186,6 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => "één decillion"
     => "en decillion"
     => "decilijon"
-    => "бiр дециллион"
 
     [1, 2, 3].to_words
     => ["one", "two", "three"]
@@ -210,7 +200,6 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["jedna", "dva", "tři"]
     => ["một", "hai", "ba"]
     => ["մեկ", "երկու", "երեք"]
-    => ["бiр", "екi", "үш"]
 
     [11, 22, 133].to_words
     => ["eleven", "twenty-two", "one hundred thirty-three"]
@@ -231,7 +220,6 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     => ["jedenáct", "dvacetdva", "jedno sto třicettři"]
     => ["mười một", "hai mươi hai", "một trăm ba mươi ba"]
     => ["տասնմեկ", "քսան երկու", "հարյուր երեսուն երեք"]
-    => ["он бiр", "жиырма екi", "бiр жүз отыз үш"]
 
     21.77.to_words
     => "twenty-one and seventy-seven hundredths"
@@ -291,7 +279,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
 
 * Brazilian Portuguese
 
-  Change gender form: (gender: [:female || :male])
+  Change gender form: (gender: [:female || :male || :neuter])
 
     I18n.with_locale(:'pt-BR') { 1000000001.to_words gender: :female }
     => "um bilhão e uma"
@@ -309,6 +297,7 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     I18n.with_locale(:'cs') { 1.to_words gender: :neuter }
     => "jedno"
 
+
   Remove 'zero' from integral part of float: (remove_zero: [true || false])
 
     I18n.with_locale(:cs) { 0.7.to_words }
@@ -325,49 +314,18 @@ Deletrea números en varios idiomas utilizando la gema I18n.
     I18n.with_locale(:cs) { 21.to_words gender: :female, ordinal: true }
     => "dvacátá první"
 
-* Spanish
-
-  Change gender form: (gender: [:female || :male])
-
-    I18n.with_locale(:es) { 1.to_words gender: :female }
-    => "una"
-
-    I18n.with_locale(:es) { 1.to_words gender: :male }
-    => "uno"
-
-  Use the apocopated (shortened) form: (apocopated: [true || false])
-
-    I18n.with_locale(:es) { 1.to_words apocopated: true }
-    => "un"
-
-  Mix gender and apocopated forms:
-
-    I18n.with_locale(:es) { 201.to_words gender: :female, apocopated: true }
-    => "doscientas un"
-
-  Remove 'zero' from integral part of float: (remove_zero: [true || false])
-
-    I18n.with_locale(:es) { 0.7.to_words }
-    => "cero con siete décimas"
-
-    I18n.with_locale(:es) { 0.7.to_words remove_zero: true }
-    => "siete décimas"
-
 == Other options / Другие опции
 
-* Precision
+* precision
 
   You may pass argument :precision that added zeros to the end of float number:
 
     I18n.with_locale(:ru) { 0.1.to_words precision: 3 }
     => ноль целых и десять сотых
 
-    I18n.with_locale(:es) { 0.2.to_words precision: 2 }
-    => cero con veinte centésimas
-
 == Requirements / Требования / Configuration Requise
 
-* 2.5 <= Ruby (compatible with/совместимость с/compatible avec Ruby 2.5 and/и/et JRuby);
+* 2.3 <= Ruby (compatible with/совместимость с/compatible avec Ruby 2.3 and/и/et JRuby);
 * 0.5.0 <= I18n (earlier versions not tested/ранние версии не тестировались/versions précédentes non testées);
 
 == Installation / Установка / Installation
