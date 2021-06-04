@@ -4,7 +4,7 @@ module NumbersAndWords
   module Strategies
     module FiguresConverter
       module Decorators
-        module Ua
+        module Uk
           class Integral < Base
             def run
               @options[:gender] = :female

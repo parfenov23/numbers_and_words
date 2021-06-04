@@ -2,7 +2,7 @@
 
 module NumbersAndWords
   module Translations
-    class Ua < Base
+    class Uk < Base
       include NumbersAndWords::Translations::Families::Cyrillic
       include NumbersAndWords::Translations::Extensions::FractionSignificance
     end

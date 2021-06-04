@@ -2,10 +2,9 @@
 
 module NumbersAndWords
   module Strategies
-    module FiguresConverter
+    module ArrayJoiner
       module Languages
-        class Ua < Base
-          include Families::Cyrillic
+        class Uk < Base
         end
       end
     end

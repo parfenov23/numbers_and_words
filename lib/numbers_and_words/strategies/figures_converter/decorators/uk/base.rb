@@ -3,9 +3,9 @@
 module NumbersAndWords
   module Strategies
     module FiguresConverter
-      module Options
-        module Ua
-          class Gender < Base::Gender
+      module Decorators
+        module Uk
+          class Base < Decorators::Base
           end
         end
       end

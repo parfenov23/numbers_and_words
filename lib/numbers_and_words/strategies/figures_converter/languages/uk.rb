@@ -3,10 +3,9 @@
 module NumbersAndWords
   module Strategies
     module FiguresConverter
-      module Decorators
-        module Ua
-          class Base < Decorators::Base
-          end
+      module Languages
+        class Uk < Base
+          include Families::Cyrillic
         end
       end
     end

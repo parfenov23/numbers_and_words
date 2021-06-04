@@ -25,7 +25,7 @@ require 'numbers_and_words/strategies/figures_converter/languages/hy'
 
 require 'numbers_and_words/strategies/figures_converter/languages/families/cyrillic'
 require 'numbers_and_words/strategies/figures_converter/languages/ru'
-require 'numbers_and_words/strategies/figures_converter/languages/ua'
+require 'numbers_and_words/strategies/figures_converter/languages/uk'
 require 'numbers_and_words/strategies/figures_converter/languages/vi'
 
 module NumbersAndWords
